@@ -1,4 +1,4 @@
-import { ADD_TASK, EDIT_TASK } from "../Constant/action-type"
+import { ADD_TASK, DELETE_TASK, DONE_TASK, EDIT_TASK} from "../Constant/action-type"
 
 
 
@@ -17,7 +17,11 @@ const  TaskReducer = (state=initialState, {type,payload})=>{
             return {...state,listTasks:[...state.listTasks,payload]}
         case  EDIT_TASK :
             return {...state,listTasks: state.listTasks.map((el)=>
-                el.id ===payload.id ? {...el, text:payload.newTask}:el)}      
+                el.id ===payload.id ? {...el, text:payload.newTask}:el)}   
+        case DELETE_TASK :
+            return  {...state, listTasks: state.listTasks.filter(el => el.id !== payload.id)} 
+            case DONE_TASK :
+            return {...state, listTasks: state.listTasks.map((el)=>el.id === payload ? {...el, isDone: !el.isDone}: el)} 
         default:
           return state 
     }

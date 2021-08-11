@@ -19,7 +19,7 @@ const Editt = ({task}) => {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" onClick={handleShow}>
         Edit
       </Button>
 

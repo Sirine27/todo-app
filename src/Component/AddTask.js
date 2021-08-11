@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
-
+import { Button } from 'react-bootstrap';
 import { addTask } from '../JS/Action/action';
 
 
@@ -24,7 +24,7 @@ const AddTask = () => {
     return (
         <div>
            <input placeholder='add task...' value={text} onChange={(e)=>setText(e.target.value)}/>
-           <button onClick={handleChange}>AddTask</button>
+           <Button variant="secondary" onClick={handleChange}>AddTask</Button>
         </div>
     )
 }
